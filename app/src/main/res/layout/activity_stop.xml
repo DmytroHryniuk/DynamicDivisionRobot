@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StopActivity">
+
+    <ImageView
+        android:id="@+id/logo_text"
+        android:layout_width="197dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_dd_logo_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/logo_right"
+        android:layout_width="175dp"
+        android:layout_height="415dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="200dp"
+        android:src="@drawable/ic_dd_logo_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_left"
+        android:layout_width="175dp"
+        android:layout_height="415dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginBottom="200dp"
+        android:src="@drawable/ic_dd_logo_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/logo_stop"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="295dp"
+        android:src="@drawable/ic_dd_stop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/con_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Cleaning in progress"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

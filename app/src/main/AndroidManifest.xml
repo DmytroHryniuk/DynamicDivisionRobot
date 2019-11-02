@@ -11,11 +11,15 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:noHistory="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:noHistory="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity"></activity>
+        <activity android:name=".DockActivity"></activity>
+        <activity android:name=".PauseActivity" />
+        <activity android:name=".FinishActivity" />
+        <activity android:name=".StopActivity" />
+        <activity android:name=".StartActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="org.eclipse.paho.android.service.MqttService"></service>
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
 
         <meta-data
             android:name="preloaded_fonts"
