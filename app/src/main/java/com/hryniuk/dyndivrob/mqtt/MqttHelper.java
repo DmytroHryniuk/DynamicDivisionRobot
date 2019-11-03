@@ -18,7 +18,7 @@ public class MqttHelper {
 
     final String serverUri = "tcp://farmer.cloudmqtt.com:14793";
 
-    final String clientId = "DynamicDivision";
+    final String clientId = "DynamicDivisionRobot";
     final String subscriptionTopic = "Cleaner";
 
     final String publishToTopic ="User/Control";
