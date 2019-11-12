@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
             public void connectComplete(boolean b, String s) {
                 Log.w("Debug","Connected");
 
-                mqttHelper.publishToTopic("ping1");
-                Toast.makeText(MainActivity.this, "ping1", Toast.LENGTH_SHORT).show();
+                mqttHelper.publishToTopic("{\"data\":\"ping1\"}");
+                Toast.makeText(MainActivity.this, "{\"data\":\"ping1\"}", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                 Log.w("Debug",mqttMessage.toString());
-                if (mqttMessage.toString().equals("here")){
+                if (mqttMessage.toString().contains("here")){
 
                     Toast.makeText(MainActivity.this, "here", Toast.LENGTH_SHORT).show();
                     animTimer.cancel();

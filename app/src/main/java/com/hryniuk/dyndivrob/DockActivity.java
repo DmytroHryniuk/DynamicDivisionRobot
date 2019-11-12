@@ -57,7 +57,7 @@ public class DockActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                 Log.w("Debug", mqttMessage.toString());
-                if (mqttMessage.toString().equals("pok")) {
+                if (mqttMessage.toString().contains("pok")) {
                     mes_text = mqttMessage.toString();
 
 
@@ -139,15 +139,15 @@ public class DockActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (logo_stop.isEnabled()) {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        Toast.makeText(DockActivity.this, "pause1", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DockActivity.this, "{\"data\":\"pause1\"}", Toast.LENGTH_SHORT).show();
                         //TODO: PAUSE
-                        mqttHelper.publishToTopic("pause1");
+                        mqttHelper.publishToTopic("{\"data\":\"pause1\"}");
                         logo_stop.setEnabled(false);
                         //
                         //TODO: WAIT PAUSEOK
                         waitTimer = new CountDownTimer(8000, 1000) {
                             public void onTick(long millisUntilFinished) {
-                                if (mes_text.equals("pok")) {
+                                if (mes_text.contains("pok")) {
                                     isRobotStop = true;
                                     Toast.makeText(DockActivity.this, "pok", Toast.LENGTH_SHORT).show();
                                     if (waitTimer != null) {

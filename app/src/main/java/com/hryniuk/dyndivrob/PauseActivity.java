@@ -56,11 +56,11 @@ public class PauseActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                 Log.w("Debug", mqttMessage.toString());
-                if (mqttMessage.toString().equals("rsmok")) {
+                if (mqttMessage.toString().contains("rsmok")) {
                     mes_text = mqttMessage.toString();
 
 
-                } else if (mqttMessage.toString().equals("gdock")) {
+                } else if (mqttMessage.toString().contains("gdock")) {
                     mes_text = mqttMessage.toString();
 
 
@@ -123,16 +123,16 @@ public class PauseActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (logo_right.isEnabled()) {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        Toast.makeText(PauseActivity.this, "rsm", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PauseActivity.this, "{\"data\":\"rsm\"}", Toast.LENGTH_SHORT).show();
                         //TODO: RESUME
-                        mqttHelper.publishToTopic("rsm");
+                        mqttHelper.publishToTopic("{\"data\":\"rsm\"}");
                         logo_right.setEnabled(false);
                         logo_left.setEnabled(false);
                         //
                         //TODO: WAIT RESUMEOK
                         waitTimer = new CountDownTimer(8000, 1000) {
                             public void onTick(long millisUntilFinished) {
-                                if (mes_text.equals("rsmok")) {
+                                if (mes_text.contains("rsmok")) {
                                     isRobotResume = true;
                                     Toast.makeText(PauseActivity.this, "rsmok", Toast.LENGTH_SHORT).show();
                                     if (waitTimer != null) {
@@ -140,7 +140,7 @@ public class PauseActivity extends AppCompatActivity {
                                         waitTimer.cancel();
                                         waitTimer = null;
                                     }
-                                } else if (mes_text.equals("gdock")) {
+                                } else if (mes_text.contains("gdock")) {
                                     isRobotDocked = true;
                                     Toast.makeText(PauseActivity.this, "gdock", Toast.LENGTH_SHORT).show();
                                     if (waitTimer != null) {
@@ -200,16 +200,16 @@ public class PauseActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (logo_left.isEnabled()) {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        Toast.makeText(PauseActivity.this, "dock", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PauseActivity.this, "{\"data\":\"dock\"}", Toast.LENGTH_SHORT).show();
                         //TODO: GDOCK
-                        mqttHelper.publishToTopic("dock");
+                        mqttHelper.publishToTopic("{\"data\":\"dock\"}");
                         logo_left.setEnabled(false);
                         logo_right.setEnabled(false);
                         //
                         //TODO: WAIT GDOCKOK
                         waitTimer = new CountDownTimer(8000, 1000) {
                             public void onTick(long millisUntilFinished) {
-                                if (mes_text.equals("gdock")) {
+                                if (mes_text.contains("gdock")) {
                                     isRobotDocked = true;
                                     Toast.makeText(PauseActivity.this, "gdock", Toast.LENGTH_SHORT).show();
                                     if (waitTimer != null) {

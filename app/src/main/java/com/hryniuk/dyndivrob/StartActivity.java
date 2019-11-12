@@ -68,7 +68,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                 Log.w("Debug", mqttMessage.toString());
-                if (mqttMessage.toString().equals("strtok")) {
+                if (mqttMessage.toString().contains("strtok")) {
                     mes_text = mqttMessage.toString();
 
 
@@ -111,15 +111,15 @@ public class StartActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (logo_right.isEnabled()) {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        Toast.makeText(StartActivity.this, "start", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StartActivity.this, "{\"data\":\"start\"}", Toast.LENGTH_SHORT).show();
                         //TODO: START
-                        mqttHelper.publishToTopic("start");
+                        mqttHelper.publishToTopic("{\"data\":\"start\"}");
                         logo_right.setEnabled(false);
                         //
                         //TODO: WAIT STARTOK
                         waitTimer = new CountDownTimer(8000, 1000) {
                             public void onTick(long millisUntilFinished) {
-                                if (mes_text.equals("strtok")) {
+                                if (mes_text.contains("strtok")) {
                                     isRobotStart = true;
                                     Toast.makeText(StartActivity.this, "strtok", Toast.LENGTH_SHORT).show();
                                     if (waitTimer != null) {

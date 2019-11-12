@@ -58,7 +58,7 @@ public class FinishActivity extends AppCompatActivity {
             @Override
             public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
                 Log.w("Debug", mqttMessage.toString());
-                if (mqttMessage.toString().equals("here")) {
+                if (mqttMessage.toString().contains("here")) {
                     mes_text = mqttMessage.toString();
 
 
@@ -118,15 +118,15 @@ public class FinishActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (logo_full.isEnabled()) {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        Toast.makeText(FinishActivity.this, "ping1", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FinishActivity.this, "{\"data\":\"ping1\"}", Toast.LENGTH_SHORT).show();
                         //TODO: RESTART
-                        mqttHelper.publishToTopic("ping1");
+                        mqttHelper.publishToTopic("{\"data\":\"ping1\"}");
                         logo_full.setEnabled(false);
                         //
                         //TODO: WAIT RESTARTOK
                         waitTimer = new CountDownTimer(8000, 1000) {
                             public void onTick(long millisUntilFinished) {
-                                if (mes_text.equals("here")) {
+                                if (mes_text.contains("here")) {
                                     isRobotRestart = true;
                                     Toast.makeText(FinishActivity.this, "here", Toast.LENGTH_SHORT).show();
                                     if (waitTimer != null) {
