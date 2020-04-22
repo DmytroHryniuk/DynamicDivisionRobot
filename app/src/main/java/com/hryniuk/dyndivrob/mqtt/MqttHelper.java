@@ -15,23 +15,14 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 public class MqttHelper {
     public MqttAndroidClient client;
-
-  /*  final String serverUri = "tcp://farmer.cloudmqtt.com:14793";
-
-    final String clientId = "DynamicDivisionRobot";
-    final String subscriptionTopic = "Cleaner";
-
-    final String publishToTopic ="User/Control";
-    final String username = "ysrhwodb";
-    final String password = "ML1wR2trP2j0";*/
-    final String serverUri = "tcp://broker.mqttdashboard.com:13608";
+    final String serverUri = "tcp://broker.mqttdashboard.com:45";
 
     final String clientId = "DynamicDivision";
     final String subscriptionTopic = "Cleaner";
 
     final String publishToTopic ="User/Control";
-    final String username = "savbnahv";
-    final String password = "OCKVPNvQm99Z";
+    final String username = "username";
+    final String password = "password";
 
 
 
