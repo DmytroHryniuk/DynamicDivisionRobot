@@ -24,7 +24,7 @@ public class MqttHelper {
     final String publishToTopic ="User/Control";
     final String username = "ysrhwodb";
     final String password = "ML1wR2trP2j0";*/
-    final String serverUri = "tcp://farmer.cloudmqtt.com:13608";
+    final String serverUri = "tcp://broker.mqttdashboard.com:13608";
 
     final String clientId = "DynamicDivision";
     final String subscriptionTopic = "Cleaner";
@@ -32,6 +32,7 @@ public class MqttHelper {
     final String publishToTopic ="User/Control";
     final String username = "savbnahv";
     final String password = "OCKVPNvQm99Z";
+
 
 
     public MqttHelper(Context context) {

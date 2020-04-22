@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.hryniuk.dyndivrob.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" >
+        <action
+            android:id="@+id/action_mainActivity_to_stopActivity"
+            app:destination="@id/startActivity" />
+    </activity>
+    <activity
+        android:id="@+id/pauseActivity"
+        android:name="com.hryniuk.dyndivrob.PauseActivity"
+        android:label="activity_pause"
+        tools:layout="@layout/activity_pause" >
+        <action
+            android:id="@+id/action_pauseActivity_to_stopActivity"
+            app:destination="@id/stopActivity" />
+        <action
+            android:id="@+id/action_pauseActivity_to_dockActivity"
+            app:destination="@id/dockActivity" />
+    </activity>
+    <activity
+        android:id="@+id/dockActivity"
+        android:name="com.hryniuk.dyndivrob.DockActivity"
+        android:label="activity_dock"
+        tools:layout="@layout/activity_dock" >
+        <action
+            android:id="@+id/action_dockActivity_to_finishActivity"
+            app:destination="@id/finishActivity" />
+    </activity>
+    <activity
+        android:id="@+id/stopActivity"
+        android:name="com.hryniuk.dyndivrob.StopActivity"
+        android:label="activity_stop"
+        tools:layout="@layout/activity_stop" >
+        <action
+            android:id="@+id/action_stopActivity_to_pauseActivity"
+            app:destination="@id/pauseActivity" />
+    </activity>
+    <activity
+        android:id="@+id/startActivity"
+        android:name="com.hryniuk.dyndivrob.StartActivity"
+        android:label="activity_start"
+        tools:layout="@layout/activity_start" >
+        <action
+            android:id="@+id/action_startActivity_to_stopActivity"
+            app:destination="@id/stopActivity" />
+    </activity>
+    <activity
+        android:id="@+id/finishActivity"
+        android:name="com.hryniuk.dyndivrob.FinishActivity"
+        android:label="activity_finish"
+        tools:layout="@layout/activity_finish" />
+</navigation>
