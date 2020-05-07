@@ -1,6 +1,8 @@
 # Dynamic Division
+<p align="center">
+  <img src="/app/src/main/res/drawable/3.png" width="400">
+</p>
 
-![icon_featured_graphic](/app/src/main/res/drawable/3.png)
 
 ****
 #### Table of contents:
