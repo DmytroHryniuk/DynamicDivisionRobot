@@ -1,6 +1,6 @@
 # Dynamic Division
 <p align="center">
-  <img src="/app/src/main/res/drawable/3.png" width="400">
+  <img src="/app/src/main/res/drawable/3.png" width="500">
 </p>
 
 
